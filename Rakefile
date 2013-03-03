@@ -8,7 +8,7 @@ company     = "NSScreencast"
 company_id  = "com.nsscreencast"
 scheme      = "#{app_name}"
 progress    = ENV['progress'] != nil
-output_dir  = "build"
+output_dir = "build"
 
 XcodeBuild::Tasks::BuildTask.new do |t|
   t.sdk = "iphoneos"
@@ -23,6 +23,8 @@ XcodeBuild::Tasks::BuildTask.new do |t|
   end
   t.formatter = XcodeBuild::Formatters::ProgressFormatter.new if progress
 end
+
+task :ci => [:build_ipa, :docs]
 
 desc "Installs the provisioning profiles present in the provisioning directory"
 task :install_provisioning_profiles do
