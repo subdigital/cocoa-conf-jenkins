@@ -2,14 +2,17 @@ require 'rubygems'
 require 'xcodebuild'
 require 'pry'
 
+app_name = "SocialApp"
+workspace = "#{app_name}.xcworkspace"
+scheme = "#{app_name}"
 progress = ENV['progress'] != nil
 output_dir = "build"
 
 XcodeBuild::Tasks::BuildTask.new do |t|
   t.sdk = "iphoneos"
   t.configuration = "Release"
-  t.workspace = "SocialApp.xcworkspace"
-  t.scheme = "SocialApp"
+  t.workspace = workspace
+  t.scheme = scheme
   t.add_build_setting("ONLY_ACTIVE_ARCH", "NO")
   t.after_build do |build|
     built_products_dir = build.environment['BUILT_PRODUCTS_DIR']
@@ -39,7 +42,6 @@ end
 
 desc "Builds an IPA for distribution"
 task "build_ipa" => [:install_distribution_cert, :install_provisioning_profiles, :bump_build_number, "xcode:cleanbuild"] do
-  app_name = "SocialApp"
   verbose = false
   release_dir = File.expand_path(File.join("./", output_dir))
   app_path = "#{release_dir}/#{app_name}.app"
