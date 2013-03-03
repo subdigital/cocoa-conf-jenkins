@@ -357,10 +357,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3933A23171EF4FB895920A66 /* Pods.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialApp/SocialApp-Prefix.pch";
 				INFOPLIST_FILE = "SocialApp/SocialApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -371,12 +373,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialApp/SocialApp-Prefix.pch";
 				INFOPLIST_FILE = "SocialApp/SocialApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
