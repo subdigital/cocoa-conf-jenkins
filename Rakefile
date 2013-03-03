@@ -2,11 +2,13 @@ require 'rubygems'
 require 'xcodebuild'
 require 'pry'
 
-app_name = "SocialApp"
-workspace = "#{app_name}.xcworkspace"
-scheme = "#{app_name}"
-progress = ENV['progress'] != nil
-output_dir = "build"
+app_name    = "SocialApp"
+workspace   = "#{app_name}.xcworkspace"
+company     = "NSScreencast"
+company_id  = "com.nsscreencast"
+scheme      = "#{app_name}"
+progress    = ENV['progress'] != nil
+output_dir  = "build"
 
 XcodeBuild::Tasks::BuildTask.new do |t|
   t.sdk = "iphoneos"
@@ -63,6 +65,20 @@ task "build_ipa" => [:install_distribution_cert, :install_provisioning_profiles,
   puts "Created #{ipa_path}"
 end
 
+desc "Generates HTML documentation using appledoc"
+task :docs do
+  system <<-EOS
+    appledoc \\
+      --project-name #{app_name} \\
+      --project-company #{company} \\
+      --company-id #{company_id} \\
+      --output docs \\
+      --create-html \\
+      --no-create-docset \\
+      --keep-intermediate-files .
+  EOS
+end
+
 desc "Uploads the latest ipa to testflight"
 task :publish_testflight do
   ipa = Dir["build/*.ipa"].first
@@ -75,6 +91,8 @@ task :publish_testflight do
 
   upload_to_testflight(ipa, dsym, notes)
 end
+
+
 
 def upload_to_testflight(ipa_file, dsym_file, release_notes)
   api_token = ENV['testflight_api_token']
