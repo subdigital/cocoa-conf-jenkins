@@ -92,7 +92,7 @@ def upload_to_testflight(ipa_file, dsym_file, release_notes)
 end
 
 def zip_dsym(dsym)
-  zip_path = File.join(dsym, ".zip")
+  zip_path = dsym.chomp("/") + ".zip"
   system "zip -r #{zip_path} #{dsym}"
   zip_path
 end
