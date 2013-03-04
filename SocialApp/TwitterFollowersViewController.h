@@ -30,7 +30,7 @@
  
 @interface TwitterFollowersViewController : UITableViewController
 
-/** Sets the account store that is used to interact with twitter.
+/** Sets the account store that is used to interact with twitter. */
 @property (nonatomic, strong) ACAccountStore *accountStore;
 
 @end
