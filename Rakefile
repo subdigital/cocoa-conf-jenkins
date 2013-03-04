@@ -34,8 +34,6 @@ task :prepare_for_test do
 end
 
 task :test => [:prepare_for_test, "xcode:cleanbuild"] do
-  # octest_bundle = "#{output_dir}/#{test_target}.octest"
-  # `xcrun otest -SenTest All #{octest_bundle}`
 end
 
 task :ci => [:build_ipa, :docs]
@@ -59,7 +57,7 @@ task :bump_build_number do
 end
 
 desc "Builds an IPA for distribution"
-task "build_ipa" => [:install_distribution_cert, :install_provisioning_profiles, :bump_build_number, "xcode:cleanbuild"] do
+task "build_ipa" => [:prepare_for_release, :install_distribution_cert, :install_provisioning_profiles, :bump_build_number, "xcode:cleanbuild"] do
   verbose = false
   release_dir = File.expand_path(File.join("./", output_dir))
   app_path = "#{release_dir}/#{app_name}.app"
