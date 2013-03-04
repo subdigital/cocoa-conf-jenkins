@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B506787A16E4236E006DC8B2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B506787916E4236E006DC8B2 /* SenTestingKit.framework */; };
+		B506787B16E4236E006DC8B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5204A5616D1DB79009345DD /* UIKit.framework */; };
+		B506787C16E4236E006DC8B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5204A5816D1DB79009345DD /* Foundation.framework */; };
+		B506788216E4236E006DC8B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B506788016E4236E006DC8B2 /* InfoPlist.strings */; };
+		B506788516E4236E006DC8B2 /* SocialAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B506788416E4236E006DC8B2 /* SocialAppTests.m */; };
 		B515143E16E2513B00AFD485 /* TwitterFollowerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B515143D16E2513B00AFD485 /* TwitterFollowerCell.m */; };
 		B515144216E2602800AFD485 /* FacebookFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B515144116E2602800AFD485 /* FacebookFriendsViewController.m */; };
 		B515144716E2A2D100AFD485 /* twitter_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = B515144516E2A2D100AFD485 /* twitter_avatar.png */; };
@@ -39,6 +44,13 @@
 
 /* Begin PBXFileReference section */
 		3933A23171EF4FB895920A66 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		B506787816E4236E006DC8B2 /* SocialAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B506787916E4236E006DC8B2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B506787F16E4236E006DC8B2 /* SocialAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialAppTests-Info.plist"; sourceTree = "<group>"; };
+		B506788116E4236E006DC8B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B506788316E4236E006DC8B2 /* SocialAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAppTests.h; sourceTree = "<group>"; };
+		B506788416E4236E006DC8B2 /* SocialAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialAppTests.m; sourceTree = "<group>"; };
+		B506788616E4236E006DC8B2 /* SocialAppTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialAppTests-Prefix.pch"; sourceTree = "<group>"; };
 		B515143C16E2513B00AFD485 /* TwitterFollowerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterFollowerCell.h; sourceTree = "<group>"; };
 		B515143D16E2513B00AFD485 /* TwitterFollowerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFollowerCell.m; sourceTree = "<group>"; };
 		B515143F16E2528A00AFD485 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
@@ -79,6 +91,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B506787416E4236E006DC8B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B506787A16E4236E006DC8B2 /* SenTestingKit.framework in Frameworks */,
+				B506787B16E4236E006DC8B2 /* UIKit.framework in Frameworks */,
+				B506787C16E4236E006DC8B2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5204A5016D1DB79009345DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,10 +118,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B506787D16E4236E006DC8B2 /* SocialAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B506788316E4236E006DC8B2 /* SocialAppTests.h */,
+				B506788416E4236E006DC8B2 /* SocialAppTests.m */,
+				B506787E16E4236E006DC8B2 /* Supporting Files */,
+			);
+			path = SocialAppTests;
+			sourceTree = "<group>";
+		};
+		B506787E16E4236E006DC8B2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B506787F16E4236E006DC8B2 /* SocialAppTests-Info.plist */,
+				B506788016E4236E006DC8B2 /* InfoPlist.strings */,
+				B506788616E4236E006DC8B2 /* SocialAppTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B5204A4A16D1DB79009345DD = {
 			isa = PBXGroup;
 			children = (
 				B5204A5C16D1DB79009345DD /* SocialApp */,
+				B506787D16E4236E006DC8B2 /* SocialAppTests */,
 				B5204A5516D1DB79009345DD /* Frameworks */,
 				B5204A5416D1DB79009345DD /* Products */,
 				3933A23171EF4FB895920A66 /* Pods.xcconfig */,
@@ -110,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				B5204A5316D1DB79009345DD /* SocialApp.app */,
+				B506787816E4236E006DC8B2 /* SocialAppTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +168,7 @@
 				B5204A5816D1DB79009345DD /* Foundation.framework */,
 				B5204A5A16D1DB79009345DD /* CoreGraphics.framework */,
 				E129D9992BD546E59328448A /* libPods.a */,
+				B506787916E4236E006DC8B2 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +220,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B506787716E4236E006DC8B2 /* SocialAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B506788916E4236E006DC8B2 /* Build configuration list for PBXNativeTarget "SocialAppTests" */;
+			buildPhases = (
+				B506787316E4236E006DC8B2 /* Sources */,
+				B506787416E4236E006DC8B2 /* Frameworks */,
+				B506787516E4236E006DC8B2 /* Resources */,
+				B506787616E4236E006DC8B2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocialAppTests;
+			productName = SocialAppTests;
+			productReference = B506787816E4236E006DC8B2 /* SocialAppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		B5204A5216D1DB79009345DD /* SocialApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5204A7616D1DB79009345DD /* Build configuration list for PBXNativeTarget "SocialApp" */;
@@ -215,11 +278,20 @@
 			projectRoot = "";
 			targets = (
 				B5204A5216D1DB79009345DD /* SocialApp */,
+				B506787716E4236E006DC8B2 /* SocialAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B506787516E4236E006DC8B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B506788216E4236E006DC8B2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5204A5116D1DB79009345DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +317,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B506787616E4236E006DC8B2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		C10D6EA5169E4A55B73EAEA2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +347,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B506787316E4236E006DC8B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B506788516E4236E006DC8B2 /* SocialAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5204A4F16D1DB79009345DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +371,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B506788016E4236E006DC8B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B506788116E4236E006DC8B2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B5204A5F16D1DB79009345DD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,6 +398,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B506788716E4236E006DC8B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SocialAppTests/SocialAppTests-Prefix.pch";
+				INFOPLIST_FILE = "SocialAppTests/SocialAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B506788816E4236E006DC8B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SocialAppTests/SocialAppTests-Prefix.pch";
+				INFOPLIST_FILE = "SocialAppTests/SocialAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		B5204A7416D1DB79009345DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -388,6 +519,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B506788916E4236E006DC8B2 /* Build configuration list for PBXNativeTarget "SocialAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B506788716E4236E006DC8B2 /* Debug */,
+				B506788816E4236E006DC8B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B5204A4E16D1DB79009345DD /* Build configuration list for PBXProject "SocialApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -18,3 +18,4 @@ DerivedData
 pkg
 build.output
 docs
+test-reports

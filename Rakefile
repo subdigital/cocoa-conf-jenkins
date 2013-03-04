@@ -11,9 +11,10 @@ company     = "NSScreencast"
 company_id  = "com.nsscreencast"
 scheme      = "#{app_name}"
 progress    = ENV['progress'] != nil
-output_dir = "build"
+output_dir  = "build"
+test_target = "#{app_name}Tests"
 
-XcodeBuild::Tasks::BuildTask.new do |t|
+build_task = XcodeBuild::Tasks::BuildTask.new do |t|
   t.sdk = "iphoneos"
   t.configuration = "Release"
   t.workspace = workspace
@@ -25,6 +26,16 @@ XcodeBuild::Tasks::BuildTask.new do |t|
     system("cp -R #{built_products_dir}/* #{output_dir}")
   end
   t.formatter = XcodeBuild::Formatters::ProgressFormatter.new if progress
+end
+
+task :prepare_for_test do
+  build_task.sdk = "iphonesimulator"
+  build_task.add_build_setting("TEST_AFTER_BUILD", "YES")
+end
+
+task :test => [:prepare_for_test, "xcode:cleanbuild"] do
+  # octest_bundle = "#{output_dir}/#{test_target}.octest"
+  # `xcrun otest -SenTest All #{octest_bundle}`
 end
 
 task :ci => [:build_ipa, :docs]
@@ -90,7 +101,7 @@ task :publish_testflight do
   ipa = Dir["build/*.ipa"].first
   fail "No IPA found to upload!  Run bundle exec rake build_ipa first" if ipa.nil?
   
-  dsym = Dir["build/*.dSYM.zip"].first
+  dsym = Dir["build/*.app.dSYM.zip"].first
   fail "No zipped dSYM found!" if dsym.nil?
   
   upload_to_testflight(ipa, dsym)
@@ -112,6 +123,9 @@ def upload_to_testflight(ipa_file, dsym_file)
     -F notes=@"RELEASE_NOTES"
   EOS
   system cmd
+  
+  puts
+  puts "Uploaded build #{app_version} to testflight.  "
 end
 
 def zip_dsym(dsym)
