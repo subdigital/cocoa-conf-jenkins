@@ -24,6 +24,10 @@
     [super tearDown];
 }
 
+- (void)testMath {
+    STAssertEquals(1+1, 3, @"Math is broken");
+}
+
 - (void)testExample
 {
     STAssertEquals(1, 1, @"yep");
