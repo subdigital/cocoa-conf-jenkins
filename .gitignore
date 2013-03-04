@@ -19,3 +19,4 @@ pkg
 build.output
 docs
 test-reports
+.env
