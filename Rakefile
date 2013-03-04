@@ -1,6 +1,9 @@
 require 'rubygems'
 require 'xcodebuild'
+require 'dotenv'
 require 'pry'
+
+Dotenv.load
 
 app_name    = "SocialApp"
 workspace   = "#{app_name}.xcworkspace"
@@ -90,24 +93,23 @@ task :publish_testflight do
   dsym = Dir["build/*.dSYM.zip"].first
   fail "No zipped dSYM found!" if dsym.nil?
   
-  notes = `cat RELEASE_NOTES`
-
-  upload_to_testflight(ipa, dsym, notes)
+  upload_to_testflight(ipa, dsym)
 end
 
-
-
-def upload_to_testflight(ipa_file, dsym_file, release_notes)
+def upload_to_testflight(ipa_file, dsym_file)
   api_token = ENV['testflight_api_token']
   team_token = ENV['testflight_team_token']
   
+  raise "Please set the testflight_api_token environment variable" if api_token.nil?
+  raise "Please set the testflight_team_token environment variable" if team_token.nil?
+  
   cmd = <<-EOS
-  /usr/bin/curl "http://testflightapp.com/api/builds.json" \
-    -F file=@"#{ipa_file}" \
-    -F dsym=@"#{dsym_file}" \
-    -F api_token="${API_TOKEN}" \
-    -F team_token="${TEAM_TOKEN}" \
-    -F notes="Build uploaded automatically from Xcode."
+  /usr/bin/curl "http://testflightapp.com/api/builds.json" \\
+    -F file=@"#{ipa_file}" \\
+    -F dsym=@"#{dsym_file}" \\
+    -F api_token="#{api_token}" \\
+    -F team_token="#{team_token}" \\
+    -F notes=@"RELEASE_NOTES"
   EOS
   system cmd
 end

@@ -23,6 +23,7 @@ GEM
       xcodeproj (~> 0.5.0)
     coderay (1.0.9)
     colored (1.2)
+    dotenv (0.5.0)
     escape (0.0.4)
     faraday (0.8.6)
       multipart-post (~> 1.1)
@@ -59,5 +60,6 @@ PLATFORMS
 
 DEPENDENCIES
   cocoapods
+  dotenv
   pry
   xcodebuild-rb!
