@@ -22,8 +22,14 @@ build_task = XcodeBuild::Tasks::BuildTask.new do |t|
   t.add_build_setting("ONLY_ACTIVE_ARCH", "NO")
   t.after_build do |build|
     built_products_dir = build.environment['BUILT_PRODUCTS_DIR']
-    system("rm -rf #{output_dir} && mkdir -p #{output_dir}")
-    system("cp -R #{built_products_dir}/* #{output_dir}")
+    
+    puts "WARNING: output_dir is nil.  Skipping to avoid blasting away the wrong folder" if output_dir.nil?
+    puts "WARNING: built_products_dir could not be derived from the built output" if built_products_dir.nil?
+
+    if output_dir && built_products_dir
+      system("rm -rf #{output_dir} && mkdir -p #{output_dir}")
+      system("cp -R #{built_products_dir}/* #{output_dir}")
+    end
   end
   t.formatter = XcodeBuild::Formatters::ProgressFormatter.new if progress
 end
