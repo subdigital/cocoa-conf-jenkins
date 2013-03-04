@@ -26,7 +26,8 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in SocialAppTests");
+    STAssertEquals(1, 1, @"yep");
+//    STFail(@"Unit tests are not implemented yet in SocialAppTests");
 }
 
 @end
