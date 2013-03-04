@@ -77,6 +77,7 @@ task :docs do
       --output docs \\
       --create-html \\
       --no-create-docset \\
+      --ignore Pods \\
       --keep-intermediate-files .
   EOS
 end
