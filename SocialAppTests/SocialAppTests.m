@@ -25,7 +25,7 @@
 }
 
 - (void)testMath {
-    STAssertEquals(1+1, 2, @"Math is broken");
+    STAssertEquals(1+1, 3, @"Math is broken");
 }
 
 - (void)testExample
