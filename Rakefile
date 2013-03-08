@@ -39,8 +39,7 @@ task :prepare_for_test do
   build_task.add_build_setting("TEST_AFTER_BUILD", "YES")
 end
 
-task :test => [:prepare_for_test, "xcode:cleanbuild"] do
-end
+task :test => [:prepare_for_test, "xcode:cleanbuild"]
 
 task :ci => [:build_ipa, :docs]
 
