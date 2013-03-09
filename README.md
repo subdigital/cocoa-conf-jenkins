@@ -44,7 +44,7 @@ rake docs
 On a ci server, you can run `rake ci` to automatically install provisioning profiles & 
 certificates, build an ipa, zip dsyms, and generate documentation.
 
-See the slides [here](http://speakerdeck.com/u/subdigital/jenkins).
+See the slides [here](https://speakerdeck.com/subdigital/ios-build-automation-with-jenkins).
 
 
 
